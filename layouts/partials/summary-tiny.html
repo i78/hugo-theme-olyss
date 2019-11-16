@@ -1,0 +1,25 @@
+<div class="card z-depth-0 article-summary-tiny">
+<div class="card-image with-hover">
+		{{ if .Params.images }}
+		<a href="{{ .RelPermalink }}" class="image featured">
+			{{ range first 1 .Params.images }}
+			<img src="{{ . | relURL }}" alt="">
+			{{ end }}
+		</a>
+		{{ else if .Params.featured }}
+		<a href="{{ .RelPermalink }}" class="image featured">
+			<img src="{{ (path.Join "img" (cond (eq .Params.featuredpath "date") (.Page.Date.Format "2006/01") (.Params.featuredpath)) .Params.featured) | relURL }}" alt="{{ .Params.featuredalt }}">
+		</a>
+		{{ end }}
+	<div class="card-content">
+			<a class="article-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+			<br>
+			<time class="published" datetime="{{ .Date }}">
+					{{  "January 2, 2006"| .Date.Format }}
+			</time>
+	</div>
+
+</div>
+
+
+</div>

@@ -1,0 +1,129 @@
+body {
+    background: #f0f0f0;
+    font-family: "Helvetica", sans-serif !important;
+}
+
+/*
+* Responsive dimensions / fonts
+*/
+.container {
+  margin: 0 auto;  
+  width: 98%;
+}
+
+html p {
+  font-family: "Helvetica", sans-serif !important;
+  font-weight: normal;
+  line-height: 1.9;
+  
+  color: #6b6f82;
+}
+
+html {
+  font-size: 3em;
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 95;
+  }
+
+  html {
+    font-size: 1.9em;
+  }
+
+}
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 90%;
+  }
+
+  html {
+    font-size: 1em;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.brand-logo {
+  font-size: 1em;
+}
+
+.card-image.with-hover img:hover {
+    filter:  opacity(70%);
+    transition: all 1s;
+    -webkit-transition: all 1s;        
+}
+
+.card-image.with-hover {
+  min-height: 13em;
+}
+
+.card-title.overlay {
+    text-align: center;
+  }
+  
+.card-title.overlay  {  
+    text-align: left;    
+    color: white;
+    font-size: 1.4em;
+    background-color: #1f3461;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    padding: 0 10px 0 10px;
+    margin-right: 20%;
+    margin-bottom: 1em;
+    margin-top: -5em;
+    pointer-events: none;
+    min-height: 3em;
+    max-height: 6em;
+    min-width: 60%;
+  }
+
+  .card-content a.article-link {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    line-height: 1.15;
+    font-family: "Helvetica", sans-serif !important;
+    font-weight: bold;
+    font-size: 0.65em;
+    color: black;
+    margin-bottom: 1em;
+  }
+
+  .article-date {    
+    margin-bottom: 0;
+    margin-right: 3em;
+    color: white;
+    font-size: 0.7em;
+    float: left;
+  }
+
+  .article-reading-time { 
+    float: right;
+    text-align: right;
+    
+    margin-bottom: 0;
+    color: white;
+    font-size: 0.7em;
+  }
+
+  .article-summary-tiny {    
+    border: 1px solid lightgray;
+  }
+
+  .article-summary-tiny .published {    
+    text-transform: uppercase;
+    font-size: 0.7em;
+    color: #333333;    
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    padding-top: 3em;
+  }
