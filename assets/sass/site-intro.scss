@@ -1,0 +1,26 @@
+.site-intro {
+    align-items: center;
+    text-align: center;
+   
+    ul {
+        display: flex;        
+    }
+
+    h1 {
+        font-weight: 900;
+    }
+
+    li {
+        margin-right: 0.5em;
+    }
+
+    footer {
+        align-items: center;
+        text-align: center;
+    }
+
+    .socnet-icons {        
+        filter: saturate(0);
+    }
+
+}

@@ -1,7 +1,7 @@
-  <nav class="black"> 
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">{{ .Site.Title }}</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  <nav> 
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo">{{ .Site.Title }}</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
       <ul class="right hide-on-med-and-down">
           {{ range .Site.Menus.main }}{{ .Name }}
           <li><a href="{{ .URL | relLangURL }}" class="link">{{ .Name }}</a></li>
@@ -16,11 +16,10 @@
       {{ end }}
   </ul>  
   
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          console.log("O");
-          var elems = document.querySelectorAll(".sidenav");
-          var instances = M.Sidenav.init(elems, options);
-        });
-        M.AutoInit();
-      </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var elems = document.querySelectorAll(".sidenav");
+    var instances = M.Sidenav.init(elems, options);
+  });
+  M.AutoInit();
+</script>

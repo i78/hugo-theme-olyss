@@ -1,0 +1,16 @@
+@import 'vendor/materialize/materialize.min.scss';
+@import 'vendor/fontawesome/fontawesome.scss';
+@import "vendor/fontawesome/solid.scss";
+@import "vendor/fontawesome/brands.scss";
+@import 'container-resize';
+@import 'responsive-fonts';
+@import 'post';
+@import 'font-sizes-basic';
+@import 'navbar';
+@import 'site-intro';
+@import 'gallery-styling';
+
+body {
+    background: #f0f0f0;
+    font-family: "Helvetica", sans-serif !important;
+}

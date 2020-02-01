@@ -1,0 +1,32 @@
+  <div class="card-action">
+        <div class="row">
+            <div class="col s4">
+                <i class="fas fa-mug-hot"></i>
+                {{ .ReadingTime }} Minutes
+            </div>
+    
+          <div class="col s4">
+            <i class="fas fa-tags"></i>
+            <ul class="tags-list">
+              {{ range .Params.tags }} {{ $url := printf "tags/%s" (. | urlize | lower) }}
+              <li>
+                <a class="article-category-link" href="{{ $url | absLangURL }}"
+                  >{{ . }}</a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+          <div class="col s4">
+            <i class="fas fa-folder"></i>
+            <ul class="tags-list">
+              {{ range $k, $v := .Params.categories }} 
+              {{ $url := printf "categories/%s" (. | urlize | lower) }}
+              <li>
+                <a href="{{ $url | absLangURL }}"
+                  >{{ . }}</a>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+      </div>

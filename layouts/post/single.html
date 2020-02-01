@@ -18,12 +18,7 @@ pages. */}}
   </div>
 
   <div class="col s12 m12 l3 pull-l9">
-      {{ range first 5 (where .Site.Pages  "Type" "post") }}
-          <div>
-            {{ partial "summary-tiny.html" . }}
-          </div>
-          {{ end }}
-    </div>
+      {{ partial "recent-posts.html" . }}
 </div>
 
 {{ end }}

@@ -1,10 +1,15 @@
-<!-- Compiled and minified CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-/>
+{{ $materialize := resources.Get "js/vendor/materialize/materialize.min.js" }}
+{{ $mainjs := resources.Get "js/main.js" | minify }}
+{{ $js := slice $materialize $mainjs | resources.Concat "js/bundle.js" | fingerprint}}
 
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<head>
+    <meta charset="UTF-8"/>
+</head>
 
-<link rel="stylesheet" href="/css/base.css" />
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+
+{{ $sass := resources.Get "sass/main.scss" }}
+{{ if $sass }}
+{{ $style := $sass | toCSS | minify | fingerprint}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ end }}

@@ -1,0 +1,10 @@
+nav {
+    @extend .black;
+    @extend .z-depth-4;
+    margin-bottom: 3em;
+    color: black;
+
+    .brand-logo {
+        font-size: 1em;
+    }
+}

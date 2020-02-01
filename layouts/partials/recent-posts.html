@@ -1,0 +1,15 @@
+{{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+{{/* Create a variable with that section to use in multiple places. */}}
+{{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+{{/* Check to see if the section is defined for ranging through it */}}
+{{ $section_count := len $section }}
+
+{{ $n_posts := $.Param "recent_posts_number" | default 30 }}
+	
+    <h1>Recent Posts</h1>
+		{{ range (first $n_posts $section) }}
+		<div class="s3 m3 ">
+			{{ partial "summary-tiny.html" . }}
+		</div>
+		{{ end }}
+	</div>

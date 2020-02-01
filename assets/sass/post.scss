@@ -1,0 +1,124 @@
+.card-image.with-hover {
+  min-height: 13em;
+
+  img:hover {
+    filter: opacity(70%);
+    transition: all 1s;
+    -webkit-transition: all 1s;
+  }
+}
+
+.card-title.overlay {
+  text-align: left;  
+  font-size: 1.4em;
+  background-color: #1f3461;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  padding: 0 10px 0 10px;
+  margin-right: 20%;
+  margin-bottom: 1em;
+  margin-top: -5em;
+  pointer-events: none;
+  min-height: 3em;
+  max-height: 6em;
+  min-width: 60%;
+
+  .h2 {
+    display: none;
+  }
+}
+
+.article-summary-tiny {
+  border: 1px solid lightgray;
+
+  .card-content a.article-link {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    line-height: 1.15;
+    font-weight: bold;
+    font-size: 0.65em;
+    color: black;
+    margin-bottom: 1em;
+  }
+
+  .published {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    color: #333333;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    padding-top: 3em;
+  }
+}
+
+
+.article-summary {
+
+  .card-content {
+    font-weight: normal;
+    line-height: 1.9;
+    color: #6b6f82;    
+  }
+
+  .article-reading-time {
+    float: right;
+    text-align: right;
+    margin-bottom: 0;
+    color: white;
+    font-size: 0.7em;
+  }
+
+  .article-date {
+    margin-bottom: 0;
+    margin-right: 3em;
+    color: white;
+    font-size: 0.7em;
+    float: left;
+  }
+
+  .continue-button {    
+    margin-top: 1em;
+    margin-bottom: 0;    
+    width: 100%;    
+    background: white;
+    color: #6b6f82;
+    font-weight: bold;
+  }
+
+  .card-action {
+    .col {    
+      display: flex;    
+      text-transform: uppercase;
+      font-size: 0.7em;
+      font-weight: lighter;
+    }
+    
+    .fas {
+      margin-right: 1em;
+    }
+
+    .tags-list {
+      margin: 0;
+      display: flex;
+      text-transform: uppercase;    
+      text-decoration: underline lightgray dotted;      
+  
+      a {
+        color: #333333 !important;
+      }
+    }
+  }
+}
+
+.categories-category-card {  
+  display: flex;
+}
+
+.article { 
+  @extend .article-summary;
+}
+
+.category-image {
+  opacity: 0.9;  
+  height: 90%;
+}

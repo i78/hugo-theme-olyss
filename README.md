@@ -1,14 +1,18 @@
-devs
+# Olyss Hugo theme
+Hi, this is Olyss, a clean [Hugo](https://gohugo.io) theme based on Materialize.
 
-https://github.com/jimfrenette/hugo-starter/blob/master/package.json
+Currently, it serves very fine as a drop-in replacement for hugo-theme-imperfect-slim.
 
-checkout:
-* https://www.npmjs.com/package/hugo-bin
+Work in progress.
 
+## Showcase
+* [My personal Blog](https://www.dreese.de)
 
-backlog:
-- datum und minuten im titel
-- Split and pipe css
-- static content
+## Bundled components
+* Materialize
+* [SimpleLightbox Image Gallery](https://dbrekalo.github.io/simpleLightbox/)
 
-- two tinys per row on small
+## References
+This project adheres to No Code of Conduct.  We are all adults.  We accept anyone's contributions.  Nothing else matters.
+
+For more information please visit the [No Code of Conduct](https://github.com/domgetter/NCoC) homepage.

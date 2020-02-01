@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <div id="content">
+            <div class="container row">
+
+                <!-- Main Content -->
+                <div class="col s12 m12 l12 right">
+                  <main id="site-main">
+                      {{ if .Site.Params.categoriesByCount }}
+                        {{ $.Scratch.Set "categories" .Data.Terms.ByCount }}
+                      {{ else }}
+                        {{ $.Scratch.Set "categories" .Data.Terms.Alphabetical }}
+                      {{ end }}
+                                        
+                      <div class="row">                      
+                        {{ $data := .Data }}
+                        {{ range $key, $value := $.Scratch.Get "categories" }}
+                        {{ $link := printf "/%s/%s" $data.Plural $value.Name | urlize | relLangURL }}
+                        
+                        {{ $first_article_of_category := index $value.Pages 0}}
+
+                        <div class="col s12 m12 l4">
+                        <div class="card small">
+                          <div class="card-image waves-effect waves-block waves-light">                            
+                            <a href="{{$link}}">
+                              <img class=" category-image" src="{{ (path.Join "img" (cond (eq $first_article_of_category.Params.featuredpath "date") ($first_article_of_category.Date.Format "2006/01") ($first_article_of_category.Params.featuredpath)) $first_article_of_category.Params.featured) | relURL }}" >
+                            </a>
+                          </div>
+                          <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{ $value.Name }}<i class="fas fa-chevron-circle-down right"></i></span>                                                     
+                          </div>
+                          <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">{{ $value.Name }}<i class="fas fa-times-circle right"></i></span>
+                              <div class="collection">
+                                {{ range $article := $value.Pages}}                                
+                                  <a href="{{ .RelPermalink }}" class="collection-item">{{ $article.Name}}</a>                                                                  
+                              {{ end }}
+                              </div>                            
+                          </div>
+                        </div>
+                      </div>                                               
+                        {{ end }}
+                      </div>  
+                     
+                    </main>
+                    {{ $.Scratch.Set "showCategories" false }}
+                </div>                           
+        </div>
+        {{- partial "footer.html" . -}}
+    </body>
+</html>

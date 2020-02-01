@@ -1,0 +1,24 @@
+.imageGallery1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-content: flex-end;
+  line-height: 0;
+
+  > a {
+    margin: 0 12px 12px 0;
+    flex: 0 0 31.3333%;
+
+    > img {
+      display: flex;
+      max-width: 100%;
+    }
+
+    img:hover {
+      filter: opacity(70%);
+      transition: all 1s;
+      -webkit-transition: all 1s;
+    }
+  }
+}

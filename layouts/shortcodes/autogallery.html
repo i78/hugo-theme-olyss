@@ -1,0 +1,25 @@
+{{ $css := resources.Get "vendor/simpleLightbox/simpleLightbox.min.css" }}
+{{ $simpleLightbox := resources.Get "vendor/simpleLightbox/simpleLightbox.min.js" }}
+
+{{ $path  := printf "static/img/galleries/%s" (.Get "id") }}
+{{ $withCaptions := .Get "withCaptions"}}
+{{ $webPath  := printf "/img/galleries/%s" (.Get "id") }}
+{{ $gallery := .Get "id" }}
+{{ $galleryId := printf "gallery-%s" (.Get "id") }}
+<div id ="{{$galleryId}}" class="imageGallery1">
+    {{ range (readDir $path) }}
+        {{ $caption := ""}}
+        {{ if eq $withCaptions "true" }}
+            {{ $caption = .Name}}
+        {{ end }}
+
+    <a href="{{$webPath}}/{{ .Name }} " title="{{ if ne $caption "" }}{{ $caption }}{{else}} &nbsp; {{end}}"><img src="{{$webPath}}/{{ .Name }}" alt="{{ if ne $caption "" }}{{ $caption }}{{else}} &nbsp; {{end}}" /></a>
+    {{ end }}
+</div>
+
+<script src="{{ $simpleLightbox.RelPermalink }}" integrity="{{ $simpleLightbox.Data.Integrity }}"></script>
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+ 
+<script>
+    new SimpleLightbox({elements: '.imageGallery1 a'});
+</script>

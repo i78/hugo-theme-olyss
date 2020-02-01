@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <div id="content">
+            <div class="container row">
+
+                <!-- Main Content -->
+                <div class="col s12 m12 l8 push-l4"> <!-- Note that "m8 l9" was added -->
+                  <h1>{{ .Title }}</h1>
+                  {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+                    {{ range $paginator.Pages }}
+                  <div>
+                    {{ partial "summary.html" . }}
+                  </div>
+                  {{ end }}
+                </div>
+              
+                <!-- Sidebar -->
+                <div class="col s12 m12 l3 pull-l8"> <!-- Note that "m4 l3" was added -->
+                {{ partial "recent-posts.html" . }}
+                </div>
+                
+              </div>
+        </div>
+        {{- partial "footer.html" . -}}
+    </body>
+</html>
