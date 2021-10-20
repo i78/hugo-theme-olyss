@@ -1,10 +1,38 @@
 nav {
-    @extend .black;
-    @extend .z-depth-4;
-    margin-bottom: 3em;
-    color: black;
+  @extend .black;
+  @extend .z-depth-4;
+  margin-bottom: 3em;
+  color: black;
 
-    .brand-logo {
-        font-size: 1em;
+  .brand-logo {
+    font-size: 1em;
+  }
+}
+
+.sidenav {
+  border-top: white 2px;
+  background-color: #637191;
+  width: 90%;
+
+  .mobilenav-title-image {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+  li {
+    margin: 1em 1em;
+    height: 3em;
+
+    a {
+      font-size: xx-large;
+      color: white;
+      margin: 0px;
+      display: block;
+      width: 100%;
+      height: 100%;
     }
+  }
 }
