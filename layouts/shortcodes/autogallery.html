@@ -1,19 +1,26 @@
 {{ $css := resources.Get "vendor/simpleLightbox/simpleLightbox.min.css" }}
 {{ $simpleLightbox := resources.Get "vendor/simpleLightbox/simpleLightbox.min.js" }}
 
-{{ $path  := printf "static/img/galleries/%s" (.Get "id") }}
+{{ $path  := printf "./assets/img/galleries/%s" (.Get "id") }}
+{{ $resPath  := printf "/img/galleries/%s" (.Get "id") }}
 {{ $withCaptions := .Get "withCaptions"}}
-{{ $webPath  := printf "/img/galleries/%s" (.Get "id") }}
 {{ $gallery := .Get "id" }}
 {{ $galleryId := printf "gallery-%s" (.Get "id") }}
 <div id ="{{$galleryId}}" class="imageGallery1">
     {{ range (readDir $path) }}
+    {{ $imageLocation := (path.Join $resPath .Name)}}        
         {{ $caption := ""}}
         {{ if eq $withCaptions "true" }}
             {{ $caption = .Name}}
         {{ end }}
 
-    <a href="{{$webPath}}/{{ .Name }} " title="{{ if ne $caption "" }}{{ $caption }}{{else}} &nbsp; {{end}}"><img src="{{$webPath}}/{{ .Name }}" alt="{{ if ne $caption "" }}{{ $caption }}{{else}} &nbsp; {{end}}" /></a>
+        {{ with resources.Get $imageLocation }}
+        {{ with .Resize "1000x webp"}}
+        <a href="{{ .RelPermalink }}" title="{{ if ne $caption "" }}{{ $caption }}{{else}} &nbsp; {{end}}">
+           <img src="{{ .RelPermalink }}" alt="{{ if ne $caption "" }}{{ $caption }}{{else}} &nbsp; {{end}}" />
+        </a>
+        {{ end }}
+      {{ end }}
     {{ end }}
 </div>
 

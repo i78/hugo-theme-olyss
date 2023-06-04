@@ -8,7 +8,12 @@
         </a>
         {{ else if .Params.featured }}
         <a href="{{ .RelPermalink }}" class="image featured">
-          <img src="{{ (path.Join "img" (cond (eq .Params.featuredpath "date") (.Page.Date.Format "2006/01") (.Params.featuredpath)) .Params.featured) | relURL }}" alt="{{ .Params.featuredalt }}">
+          {{ $imageLocation := (path.Join "/img" (cond (eq .Params.featuredpath "date") (.Page.Date.Format "2006/01") (.Params.featuredpath)) .Params.featured) | relURL}}
+          {{ with resources.Get $imageLocation }}
+            {{ with .Resize "1000x webp"}}
+              <img src="{{ .RelPermalink }}" alt="{{ .Params.featuredalt }}">
+            {{ end }}
+          {{ end }}
         </a>
         {{ end }}
       <span class="card-title overlay">{{ .Title }}</span>		
