@@ -1,7 +1,7 @@
 <div class="card z-depth-0 article-summary-tiny">
   <div class="card-image with-hover">
     {{ if .Params.images }}
-    <a href="{{ .RelPermalink }}" class="image featured">
+    <a href="{{ .RelPermalink }}" class="image featured" aria-label="{{ .Title }}">
       {{ range first 1 .Params.images }}
       <img src="{{ . | relURL }}" alt="" />
       {{ end }}
@@ -11,13 +11,13 @@
       {{ $imageLocation := (path.Join "/img" (cond (eq .Params.featuredpath "date") (.Page.Date.Format "2006/01") (.Params.featuredpath)) .Params.featured) | relURL}}
       {{ with resources.Get $imageLocation }}
         {{ with .Resize "400x webp"}}
-          <img src="{{ .RelPermalink }}" alt="{{ .Params.featuredalt }}">
+          <img src="{{ .RelPermalink }}" alt="{{ .Params.featuredalt }}" width="{{ .Width }}" height="{{ .Height }}">
         {{ end }}
       {{ end }}
     </a>
     {{ end }}
     <div class="card-content">
-      <a class="article-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <a class="article-link" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">{{ .Title }}</a>
       <br />
       <time class="published" datetime="{{ .Date }}">
         {{ "January 2, 2006"| .Date.Format }}

@@ -22,8 +22,7 @@
               {{ range $k, $v := .Params.categories }} 
               {{ $url := printf "categories/%s" (. | urlize | lower) }}
               <li>
-                <a href="{{ $url | absLangURL }}"
-                  >{{ . }}</a>
+                <a href="{{ $url | absLangURL }}">{{ . }}</a>
               </li>
               {{ end }}
             </ul>

@@ -1,15 +1,18 @@
 {{ $materialize := resources.Get "js/vendor/materialize/materialize.min.js" }}
-{{ $mainjs := resources.Get "js/main.js" | minify }}
-{{ $js := slice $materialize $mainjs | resources.Concat "js/bundle.js" | fingerprint}}
+{{ $mainjs := resources.Get "js/main.js"  }}
+{{ $js := slice $mainjs | resources.Concat "js/bundle.js" | minify | fingerprint }}
 
 <head>
     <meta charset="UTF-8"/>
+    <title>{{ $.Site.Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ $.Site.Params.meta.description}}">
 </head>
 
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 
 {{ $sass := resources.Get "sass/main.scss" }}
 {{ if $sass }}
-{{ $style := $sass | toCSS | minify | fingerprint}}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ $style := $sass | toCSS | minify | fingerprint}}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}?k=style" integrity="{{ $style.Data.Integrity }}">
 {{ end }}
